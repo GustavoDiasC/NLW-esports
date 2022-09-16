@@ -1,0 +1,189 @@
+*{ /*reset de css no navegador*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+}
+/*fim do reset*/
+
+
+
+
+/* css principal */
+body{ /*Fundo do site*/
+    background-image: url(./assets/bg.jpg.jpg); /* insere uma imagem a partir do caminho indicado*/
+    background-position: center; /*Centraliza  a imagem na tela*/
+    background-size: 100% auto; /*define a largua em 100% da largura disponivel da tela e a altura automatica*/
+    background-repeat: no-repeat; /* não repete a imagem no background*/
+    background-color: #121214; /*define a cor do background*/
+}
+
+body *{ /*define a fonte a ser utilizada em todo o corpo*/
+    font-family: 'inter', sans-serif;
+    line-height: 160%; /*altera o espaço entre as linhas de texto*/
+}
+
+header{
+   padding-top: 32px;
+   height: calc(120px + 32px);
+}
+
+header img{
+    width: 120px;
+    border-radius: 50%;
+}
+
+header div {
+    width: 120px;
+    margin: auto; /*alinha a div no meio*/
+    background-image: linear-gradient(90deg, #9572fc 0%, #43E7AD 50%,#E2D45C 100%);
+
+    border-radius: 50%;
+
+    display: flex;
+    padding: 4px;/*define o preenchimento do elemento da caixa*/
+
+}
+
+header img {
+    width: 100%; /*100% em relação a largura da div*/
+    border-radius: 50%; 
+}
+
+/*main * {
+    border: 1px solid red; /* define uma borda para todos elementos contidos no main*/
+/*}*/
+
+main{
+    max-width: 580px; /*define uma largura maxima para todos elementos contidos dentro de main*/
+    width: 90%; /*relativo a area do site*/
+    margin: 32px auto; /*quando tem dois valores o primeiro definira o espaço em cima e embaixo*/
+
+    display: flex;
+    flex-direction: column; /*mantem uma seção abaixo da outra*/
+    gap: 24px;
+
+    margin-top: 32px; /*espaço entre o cabeçalho e as sessões*/
+}
+
+section{ /*cor da fonte da seção e borda*/
+    color: white;
+    background-image: linear-gradient(90deg, #9572fc 0%, #43E7AD 50%,#E2D45C 100%); /*gradiente aplicado na borda*/
+    padding-top: 4px; /*preenchimento interno na borda*/
+    border-radius: 10px;
+}
+
+section div { /*define a cor de cada seção e seus espaçamentos*/
+    background-color: #2a2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+}
+
+section h2 {
+    letter-spacing: -0.47px; /*espçamento entre as letras*/
+}
+
+section p {
+    letter-spacing: -0.18px;
+    color: #a1a1aa;
+}
+
+/* os elementos inline ficam um ao lado do outro*/
+/* os elementos block ficam dispostos um abaixo do outro*/
+
+section ul { /*o display vem por padrão como block*/
+    display: flex; /*visualização da caixa no html*/
+    /*flex-wrap: wrap; ajusta o conteudo da caixa de acordo com o espaço disponivel de tela*/
+    gap: 16px; /*da um espaço entre os elementos do display*/
+    margin-top: 24px; /*espaço do topo entre os itens da caixa*/
+}
+
+.games-list img { /*definindo borda na lista de games*/
+    width: 90px;
+    border-radius: 8px;
+}
+
+.channel-list img { /*definindo borda na lista dos canais*/
+    border-radius: 50%;
+    width: 70px;
+    border: 1px solid #443e54;
+}
+/*fim do css principal*/
+
+
+
+
+/*Transitions*/
+
+header div{ /* transição do cabeçalho*/
+    transition: transform.3s; /* deixa o efeito de transição mais suave*/
+}
+
+header div:hover { /* efeito de transição que aumenta e diminui o elemento ao passar o mouse por cima*/
+    transform: scale(1.1);
+}
+
+/*transição das sections*/
+section ul li{ /*suavizando efeito de transição*/
+    transition: transform.3s;
+}
+
+section ul li:hover{  /*aplicando efeito de transição na seção */
+    transform: scale(1.1);
+}
+
+/*Fim das transições*/
+
+
+
+
+/*Animation*/
+
+header div {
+    animation: fromTop.7s 1s backwards; /*o backwards puxa os efeitos de animação pra cima*/
+    
+}
+
+main section {
+    animation: fromBottom .7s backwards;
+}
+
+main section:nth-child(1) { /*chama o filho da primeira seção*/
+    animation-delay: 0;
+}
+
+main section:nth-child(2) { /*chama o filho da primeira seção*/
+    animation-delay: .4s;
+}
+
+main section:nth-child(3) { /*chama o filho da primeira seção*/
+    animation-delay: .8s;
+}
+
+@keyframes fromTop { /* joga o elemento de cima*/
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fromBottom { /*defino o nome da animação*/
+    from { /*indico onde começa e onde termina*/
+        opacity: 0; /* defino as propriedades da animação*/
+        transform: translateY(30px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
